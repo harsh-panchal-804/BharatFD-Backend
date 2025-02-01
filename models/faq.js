@@ -11,9 +11,7 @@ const FAQSchema = new mongoose.Schema({
   answer: { type: String, required: true },
   
 
-  /////// the following fields are going to be created dynamically
-  //// eg If you want a transalation for French , then then the faq will be translated
-  //// by gooogle translate api and the result will be stored in the field "question_fr" and "answer_fr"
+  
   question_hi: { type: String, default: '' },
   question_bn: { type: String, default: '' },
   answer_hi: { type: String, default: '' },
@@ -53,8 +51,9 @@ FAQSchema.methods.getTranslation = async function (field, lang, redisClient) {
     //// store the translation in the cache
     //// you can also use funtion .setex()
     await redisClient.set(cacheKey, translation.text, 'EX', 3600); /// expire after 1 hour
-
-    this.field = translation.text;
+    
+    // this[field + '_' + lang] = translation.text;
+    // await this.save();
 
     return translation.text;
   } catch (err) {

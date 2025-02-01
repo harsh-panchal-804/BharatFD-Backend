@@ -1,0 +1,22 @@
+diff --git a/node_modules/@admin-bro/mongoose/lib/src/resource.js b/node_modules/@admin-bro/mongoose/lib/src/resource.js
+index 3f3c8b6..a998d24 100644
+--- a/node_modules/@admin-bro/mongoose/lib/src/resource.js
++++ b/node_modules/@admin-bro/mongoose/lib/src/resource.js
+@@ -50,7 +50,7 @@ class Resource extends admin_bro_1.BaseResource {
+         return (_a = this.properties().find(property => property.path() === name)) !== null && _a !== void 0 ? _a : null;
+     }
+     async count(filters = null) {
+-        return this.MongooseModel.count(convert_filter_1.convertFilter(filters));
++        return this.MongooseModel.countDocuments(convert_filter_1.convertFilter(filters));
+     }
+     async find(filters = {}, { limit = 20, offset = 0, sort = {} }) {
+         const { direction, sortBy } = sort;
+@@ -122,7 +122,7 @@ class Resource extends admin_bro_1.BaseResource {
+         }
+     }
+     async delete(id) {
+-        return this.MongooseModel.findOneAndRemove({ _id: id });
++        return this.MongooseModel.findOneAndDelete({ _id: id });
+     }
+     static stringifyId(mongooseObj) {
+         // By default Id field is an ObjectID and when we change entire mongoose model to

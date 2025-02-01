@@ -15,7 +15,7 @@ Welcome to the FAQ Backend API ! This project allows you to manage FAQs with mul
 
 ## Demo
 
-![Demo GIF](resources/demo.gif)
+![Demo GIF](/demo_gif/faq-video.gif)
 
 
 
@@ -105,6 +105,7 @@ To create a new FAQ, send a POST request with a question and answer:
         -H "Content-Type: application/json" \
         -d '{"question": "What is Node.js?", "answer": "Node.js is a runtime for executing JavaScript"
   ```
+Or go to the /admin route (http://localhost:3000/admin)  and add it manually via an admin page.
 
 
 ## Contributing

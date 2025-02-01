@@ -49,7 +49,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the Repository**
    ```bash
-    https://github.com/harsh-panchal-804/FAQ-Backend
+    git clone https://github.com/harsh-panchal-804/FAQ-Backend
    ```
 
 2. **Install backend dependencies**

@@ -1,7 +1,7 @@
 
 //// ideally we should use import instead of require
 const express = require('express');
-
+const adminRouter = require('./admin'); 
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -43,6 +43,8 @@ app.use((req, res, next) => {
 
 
 app.use('/faqs', faqRoutes);
+
+app.use('/admin', adminRouter);
 
 
 const PORT = process.env.PORT || 3000;
